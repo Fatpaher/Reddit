@@ -9,15 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @link, notice: 'Comment was successfully created'
     else
-      render :new
-    end
-  end
-
-  def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
-    else
-      render :edit
+      redirect_to @link
     end
   end
 
