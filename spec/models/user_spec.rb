@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User do
   describe 'associations' do
-    it {should have_many(:links)}
+    it { is_expected.to have_many(:links) }
   end
 
   describe "validations" do
