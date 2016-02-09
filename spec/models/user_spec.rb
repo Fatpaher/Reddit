@@ -6,7 +6,8 @@ describe User do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email) }
   end
 
   describe 'when email format is invalid' do
@@ -28,16 +29,6 @@ describe User do
        user.email = valid_address
        expect(user).to be_valid
      end
-   end
- end
-
- describe 'when email address is already taken' do
-   it 'should not be valid' do
-     user = create(:user)
-     user_with_same_email = user.dup
-     user_with_same_email.email = user.email.upcase
-     user_with_same_email.save
-     expect(user_with_same_email).to_not be_valid
    end
  end
 end
